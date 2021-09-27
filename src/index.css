@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Estilos Navbar */
+
+.navbar {
+  box-shadow: 0 0px 10px 0 rgba(0,0,0,0.4);
+}
+.carrito-container {
+  position: relative;
+}
+.carrito-icon {
+  font-size: 32px;
+  margin-right: 40px;
+  color: #37976c;
+}
+.counter {
+  position: absolute;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  height: 32px;
+  width: 30px;
+  top: -10px;
+  left: 36px;
+}
+.counter .counter-number {
+  position: relative;
+  top: -5px;
+}
