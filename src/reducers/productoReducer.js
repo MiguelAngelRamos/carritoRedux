@@ -23,6 +23,16 @@ export default function productosReducer(state=initialState, action) {
         loading: action.payload
       }
     }
+    case DESCARGA_PRODUCTOS_EXITO: {
+      return {
+        ...state,
+        loading: false,
+        productos: action.payload
+      }
+    }
+  
+    default:
+      return state; // por defecto siempre debe retornar el state
 
   }
 
