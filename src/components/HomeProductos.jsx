@@ -3,8 +3,10 @@ import { useSelector, useDispatch} from 'react-redux';
 import { obtenerProductosAction } from '../actions/productoActions';
 import CardProducto from './CardProducto';
 
+
 const HomeProductos = () => {
   const dispatch = useDispatch();
+
 
   useEffect(()=> {
     // consultar la API
@@ -16,7 +18,7 @@ const HomeProductos = () => {
  
   return (
     <>
-      <h1 className="text-center">Home Productos</h1>
+      <h1 className="text-center">Home Productos </h1>
       <div className="container mt-5">
         <div className="row d-flex justify-content-between">
             {

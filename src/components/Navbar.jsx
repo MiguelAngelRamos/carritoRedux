@@ -1,6 +1,11 @@
+import { useContext } from 'react';
 import { Link, NavLink} from 'react-router-dom';
+import { CarritoContext } from '../context/CarritoContext';
 
 const Navbar = () => {
+  // llamar al context
+  const { carritoCompra } = useContext(CarritoContext);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
@@ -25,7 +30,7 @@ const Navbar = () => {
           <div className="counter">
             <div className="counter-number">
               {/* {{ Object.keys(carrito).length }} */}
-              0
+              { carritoCompra }
             </div>
           </div>
         </Link>

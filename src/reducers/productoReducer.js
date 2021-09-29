@@ -3,7 +3,8 @@ import {
   DESCARGA_PRODUCTOS_EXITO,
   DESCARGA_PRODUCTOS_ERROR,
   AGREGAR_PRODUCTO_CARRITO,
-  AGREGAR_CANTIDAD
+  AUMENTAR_CANTIDAD_CARRITO,
+  DISMINUIR_CANTIDAD_CARRITO
 } from '../types';
 
 // el state de la aplicacion
@@ -11,7 +12,8 @@ const initialState = {
   productos: [],
   loading: false,
   error: null,
-  carrito: {}
+  carrito: {},
+  carritoArray: []
 }
 
 export default function productosReducer(state=initialState, action) {
@@ -28,6 +30,21 @@ export default function productosReducer(state=initialState, action) {
         ...state,
         loading: false,
         productos: action.payload
+      }
+    }
+    case AGREGAR_PRODUCTO_CARRITO: {
+      state.carrito[action.payload.id] = action.payload;
+      // state.carritoArray.push(action?.payload);
+      state.carritoArray[action.payload.id] = action.payload;
+      return {
+        ...state
+      }
+    }
+    case AUMENTAR_CANTIDAD_CARRITO: {
+      // id
+      state.carrito[action.payload].cantidad = state.carrito[action.payload].cantidad + 1;
+      return {
+        ...state
       }
     }
   

@@ -3,7 +3,8 @@ import {
   DESCARGA_PRODUCTOS_EXITO,
   DESCARGA_PRODUCTOS_ERROR,
   AGREGAR_PRODUCTO_CARRITO,
-  AGREGAR_CANTIDAD
+  AGREGAR_CANTIDAD,
+  AUMENTAR_CANTIDAD_CARRITO
 } from '../types';
 
 import clienteAxios from '../config/axios';
@@ -32,3 +33,27 @@ const descargaProductosExitosa = (productos) => ({
   type: DESCARGA_PRODUCTOS_EXITO,
   payload: productos
 });
+
+// Añadir al carrito
+export function agregarCarritoAction(producto) {
+  return (dispatch) => {
+    dispatch(agregarProductoCarrito(producto));
+  }
+}
+
+const agregarProductoCarrito = (producto) => ({
+  type: AGREGAR_PRODUCTO_CARRITO,
+  payload: producto
+})
+
+
+export function aumentarCantidadAction(idProducto) {
+  return(dispatch) => {
+    dispatch(aumentarCantidadCarrito(idProducto))
+  }
+}
+
+const aumentarCantidadCarrito = id => ({
+  type: AUMENTAR_CANTIDAD_CARRITO,
+  payload: id
+})
